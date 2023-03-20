@@ -1,6 +1,7 @@
 package container;
 
 import Modes.*;
+import Modes.InsertModeState.shapeType;
 import Pointer.MouseHandler;
 import Pointer.Point;
 import Pointer.Pointable;
@@ -17,13 +18,15 @@ public class ShapeContainer extends JPanel implements Pointable
   {
   private static final long serialVersionUID = 1L;
   private List<Shape>       shapes           = new LinkedList<Shape>();
+  private shapeType currentShape = shapeType.CIRCLE;
+
 
   public enum Mode
     {
     INSERT, MOVE, DELETE, MARK, UNMARK, RESIZE
     };
 
-  private ModeState currentMode = new InsertModeState(shapes, this);;
+  private ModeState currentMode = new InsertModeState(shapes, this);
   private Shape selected;
   
   public ShapeContainer()
@@ -39,6 +42,15 @@ public class ShapeContainer extends JPanel implements Pointable
     {
     shapes.add(shape);
     }
+  
+  public void setCurrentShapeType(shapeType currentShape) {
+    this.currentShape = currentShape;
+  }
+
+  public shapeType getCurrentShapeType() {
+    return currentShape;
+  }
+
 
   public void paintComponent(Graphics g) // anropas av Swing när det är dags att
                                          // rendera

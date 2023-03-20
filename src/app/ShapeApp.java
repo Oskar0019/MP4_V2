@@ -9,6 +9,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import Modes.InsertModeState.shapeType;
+
 public class ShapeApp extends JFrame
   {
   private static final long serialVersionUID = 1L;
@@ -25,6 +27,10 @@ public class ShapeApp extends JFrame
   public void createMenue()
     {
     JMenu menu = new JMenu("Modes");
+    JMenu shapeMenu = new JMenu("Shape");
+    createMenuItem(shapeMenu, "Circle", e -> shapeContainer.setCurrentShapeType(shapeType.CIRCLE));
+    createMenuItem(shapeMenu, "Rectangle", e -> shapeContainer.setCurrentShapeType(shapeType.RECTANGLE));
+    menu.add(shapeMenu);
     createMenuItem(menu, "Insert", e -> shapeContainer.setMode(ShapeContainer.Mode.INSERT));
     createMenuItem(menu, "Move", e -> shapeContainer.setMode(ShapeContainer.Mode.MOVE));
     createMenuItem(menu, "Delete", e -> shapeContainer.setMode(ShapeContainer.Mode.DELETE));
