@@ -3,6 +3,7 @@ package Modes;
 import Modes.ModeState;
 import Pointer.Point;
 import Shapes.Circle;
+import Shapes.Complex;
 import Shapes.Square;
 import Shapes.Shape;
 import container.ShapeContainer;
@@ -17,7 +18,7 @@ public class InsertModeState implements ModeState {
 
     public enum shapeType 
     {
-        CIRCLE, RECTANGLE
+        CIRCLE, RECTANGLE, COMPLEX
     };
 
     public InsertModeState(List<Shape> shapes, ShapeContainer container) {
@@ -34,6 +35,9 @@ public class InsertModeState implements ModeState {
                 break;
             case RECTANGLE:
                 shapes.add(new Square(point, Math.random() * 50.0));
+                break;
+            case COMPLEX:
+                shapes.add(new Complex(point, Math.random() * 50.0));
                 break;
             default:
                 throw new IllegalArgumentException("Invalid mode");

@@ -30,6 +30,7 @@ public class ShapeApp extends JFrame
     JMenu shapeMenu = new JMenu("Shape");
     createMenuItem(shapeMenu, "Circle", e -> shapeContainer.setCurrentShapeType(shapeType.CIRCLE));
     createMenuItem(shapeMenu, "Rectangle", e -> shapeContainer.setCurrentShapeType(shapeType.RECTANGLE));
+    createMenuItem(shapeMenu, "Complex", e -> shapeContainer.setCurrentShapeType(shapeType.COMPLEX));
     menu.add(shapeMenu);
     createMenuItem(menu, "Insert", e -> shapeContainer.setMode(ShapeContainer.Mode.INSERT));
     createMenuItem(menu, "Move", e -> shapeContainer.setMode(ShapeContainer.Mode.MOVE));
