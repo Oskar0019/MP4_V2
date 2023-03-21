@@ -1,6 +1,7 @@
 package Modes;
 
 import Decorators.MarkShapeDecorator;
+import Decorators.SelectedShapeDecorator;
 import Modes.ModeState;
 import Pointer.Point;
 import Shapes.Complex;
@@ -22,8 +23,9 @@ public class MarkModeState implements ModeState {
     @Override
     public void pointerDown(Point point) {
         container.select(point);
-        if (container.getSelected() != null) {
-            Shape markedShape = new MarkShapeDecorator(container.getSelected());
+        if(container.getSelected() != null)
+        {
+            Shape markedShape = new SelectedShapeDecorator(container.getSelected().peel());
             shapes.remove(container.getSelected());
             shapes.add(markedShape);
             container.repaint();

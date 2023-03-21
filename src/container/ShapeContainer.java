@@ -1,5 +1,6 @@
 package container;
 
+import Decorators.SelectedShapeDecorator;
 import Modes.*;
 import Modes.InsertModeState.shapeType;
 import Pointer.MouseHandler;
