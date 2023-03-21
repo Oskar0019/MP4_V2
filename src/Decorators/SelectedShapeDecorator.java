@@ -15,8 +15,14 @@ public class SelectedShapeDecorator implements Shape {
     }
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.BLUE);
         decoratee.draw(g);
+        Point position = decoratee.getPosition();
+        int x = (int) (position.getX() - decoratee.getWidth() / 2.0 + 0.5);
+        int y = (int) (position.getY() - decoratee.getHeight() / 2.0 + 0.5);
+        int w = (int)(decoratee.getWidth()+0.5);
+        int h = (int)(decoratee.getHeight()+0.5);
+        g.drawLine(x, y + h/2, x + w, y + h/2);
+        g.drawLine(x + w/2, y, x + w/2, y + h);
     }
 
     @Override
