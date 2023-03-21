@@ -11,25 +11,23 @@ import javax.swing.JMenuItem;
 
 import Modes.InsertModeState.shapeType;
 
-public class ShapeApp extends JFrame
-  {
+public class ShapeApp extends JFrame {
   private static final long serialVersionUID = 1L;
   private ShapeContainer shapeContainer = new ShapeContainer();
-  public ShapeApp()
-    {
+
+  public ShapeApp() {
     createMenue();
     this.add(shapeContainer);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setSize(400,400);
+    this.setSize(400, 400);
     this.setVisible(true);
-    }
-  
-  public void createMenue()
-    {
+  }
+
+  public void createMenue() {
     JMenu menu = new JMenu("Modes");
     JMenu shapeMenu = new JMenu("Shape");
     createMenuItem(shapeMenu, "Circle", e -> shapeContainer.setCurrentShapeType(shapeType.CIRCLE));
-    createMenuItem(shapeMenu, "Rectangle", e -> shapeContainer.setCurrentShapeType(shapeType.RECTANGLE));
+    createMenuItem(shapeMenu, "Square", e -> shapeContainer.setCurrentShapeType(shapeType.RECTANGLE));
     createMenuItem(shapeMenu, "Complex", e -> shapeContainer.setCurrentShapeType(shapeType.COMPLEX));
     menu.add(shapeMenu);
     createMenuItem(menu, "Insert", e -> shapeContainer.setMode(ShapeContainer.Mode.INSERT));
@@ -41,17 +39,15 @@ public class ShapeApp extends JFrame
     JMenuBar menuBar = new JMenuBar();
     menuBar.add(menu);
     this.setJMenuBar(menuBar);
-    }
-  
-  private void createMenuItem(JMenu menu, String label, ActionListener listener)
-    {
+  }
+
+  private void createMenuItem(JMenu menu, String label, ActionListener listener) {
     JMenuItem menuItem = new JMenuItem(label);
     menuItem.addActionListener(listener);
     menu.add(menuItem);
-    }
-  
-  public static void main(String args[])
-    {
-    new ShapeApp(); // obs egentligen SwingUtilities ...
-    }
   }
+
+  public static void main(String args[]) {
+    new ShapeApp(); // obs egentligen SwingUtilities ...
+  }
+}

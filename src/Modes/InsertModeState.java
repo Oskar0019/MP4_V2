@@ -16,8 +16,7 @@ public class InsertModeState implements ModeState {
     private ShapeContainer container;
     private shapeType currentShape;
 
-    public enum shapeType 
-    {
+    public enum shapeType {
         CIRCLE, RECTANGLE, COMPLEX
     };
 
@@ -29,7 +28,7 @@ public class InsertModeState implements ModeState {
 
     @Override
     public void pointerDown(Point point) {
-        switch(container.getCurrentShapeType()) {
+        switch (container.getCurrentShapeType()) {
             case CIRCLE:
                 shapes.add(new Circle(point, Math.random() * 50.0));
                 break;
@@ -37,7 +36,7 @@ public class InsertModeState implements ModeState {
                 shapes.add(new Square(point, Math.random() * 50.0));
                 break;
             case COMPLEX:
-                shapes.add(new Complex(point, Math.random() * 50.0));
+                shapes.add(new Complex(point, 50.0, 50));
                 break;
             default:
                 throw new IllegalArgumentException("Invalid mode");
