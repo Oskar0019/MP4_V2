@@ -21,14 +21,12 @@ public class MarkShapeDecorator implements Shape {
   public void draw(Graphics g) {
     decoratee.draw(g);
     Point position = decoratee.getPosition();
+    int x = (int) (position.getX() - decoratee.getWidth() / 2.0 + 0.5);
+    int y = (int) (position.getY() - decoratee.getHeight() / 2.0 + 0.5);
     if (decoratee instanceof Circle) {
-      int x = (int) (position.getX() - decoratee.getWidth() / 2.0 + 0.5);
-      int y = (int) (position.getY() - decoratee.getHeight() / 2.0 + 0.5);
       g.fillOval(x, y, (int) (decoratee.getWidth() + 0.5), (int) (decoratee.getHeight() + 0.5));
     } else if (decoratee instanceof Square) {
-      int x = (int) (0.5 + position.getX() - decoratee.getWidth());
-      int y = (int) (0.5 + position.getY() - decoratee.getHeight());
-      g.fillRect(x, y, (int) (0.5 + 2 * decoratee.getWidth()), (int) (0.5 + 2 * decoratee.getHeight()));
+      g.fillRect(x, y, (int) (0.5 + decoratee.getWidth()), (int) (0.5 + decoratee.getHeight()));
     } else if (decoratee instanceof Complex) {
       Complex complexDecoratee = (Complex) decoratee;
 
@@ -39,10 +37,10 @@ public class MarkShapeDecorator implements Shape {
           (int) (complexDecoratee.getCircle().getHeight() + 0.5));
 
       Point squarePosition = complexDecoratee.getSquare().getPosition();
-      int squareX = (int) (0.5 + squarePosition.getX() - complexDecoratee.getSquare().getWidth());
-      int squareY = (int) (0.5 + squarePosition.getY() - complexDecoratee.getSquare().getHeight());
-      g.fillRect(squareX, squareY, (int) (0.5 + 2 * complexDecoratee.getSquare().getWidth()),
-          (int) (0.5 + 2 * complexDecoratee.getSquare().getHeight()));
+      int squareX = (int) (squarePosition.getX() - complexDecoratee.getSquare().getWidth() / 2.0 + 0.5);
+      int squareY = (int) (squarePosition.getY() - complexDecoratee.getSquare().getHeight() / 2.0 + 0.5);
+      g.fillRect(squareX, squareY, (int) (0.5 + complexDecoratee.getSquare().getWidth()),
+          (int) (0.5 + complexDecoratee.getSquare().getHeight()));
     }
   }
 

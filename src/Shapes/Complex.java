@@ -10,16 +10,12 @@ import java.util.List;
 public class Complex implements Shape {
 
     private Point center;
-    private double length;
-    private double r;
     private Shape circle;
     private Shape square;
     private ArrayList<Shape> shapes = new ArrayList<>();
 
     public Complex(double x, double y, double length, double r) {
         center = new Point(x, y);
-        this.length = length;
-        this.r = r;
         circle = new Circle(center, r);
         square = new Square(center, length);
         shapes.add(circle);
@@ -52,17 +48,17 @@ public class Complex implements Shape {
 
     @Override
     public double getWidth() {
-        return length;
+        return square.getWidth();
     }
 
     @Override
     public double getHeight() {
-        return length;
+        return square.getHeight();
     }
 
     @Override
     public boolean intersects(Point point) {
-        return center.distanceTo(point) < length;
+        return center.distanceTo(point) < square.getWidth();
     }
 
     @Override

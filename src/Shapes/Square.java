@@ -25,7 +25,7 @@ public class Square implements Shape {
 
     @Override
     public void draw(Graphics g) {
-        g.drawRect((int)(0.5+center.getX()-length), (int)(0.5+center.getY()-length), (int)(0.5+2*length), (int)(0.5+2*length));
+        g.drawRect((int)(0.5+center.getX()-length/2), (int)(0.5+center.getY()-length/2), (int)(0.5+length), (int)(0.5+length));
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Square implements Shape {
 
     @Override
     public void resizeTo(Point point) {
-        length = center.distanceTo(point);
+        length = center.distanceTo(point)*2;
     }
 
     @Override

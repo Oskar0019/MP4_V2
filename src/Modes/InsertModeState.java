@@ -33,10 +33,10 @@ public class InsertModeState implements ModeState {
                 shapes.add(new Circle(point, Math.random() * 50.0));
                 break;
             case RECTANGLE:
-                shapes.add(new Square(point, Math.random() * 50.0));
+                shapes.add(new Square(point, 2*(Math.random() * 50.0)));
                 break;
             case COMPLEX:
-                shapes.add(new Complex(point, 50.0, 50));
+                shapes.add(new Complex(point, 100.0, 50));
                 break;
             default:
                 throw new IllegalArgumentException("Invalid mode");

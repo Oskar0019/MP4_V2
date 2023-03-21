@@ -1,7 +1,9 @@
 package Decorators;
 
 import Pointer.Point;
+import Shapes.Circle;
 import Shapes.Shape;
+import Shapes.Square;
 
 import java.awt.Graphics;
 import java.awt.Color;
